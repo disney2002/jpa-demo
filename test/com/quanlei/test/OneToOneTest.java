@@ -1,6 +1,8 @@
 package com.quanlei.test;
 
+import com.quanlei.demo.onoToOne.Customer;
 import com.quanlei.demo.onoToOne.IDCard;
+import com.quanlei.demo.onoToOne.Passport;
 import com.quanlei.demo.onoToOne.People;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -14,7 +16,7 @@ public class OneToOneTest {
     public static void setUpBeforeClass() throws Exception {
     }
 
-    @Test
+//    @Test
     public void save() {
         EntityManagerFactory factory = Persistence.createEntityManagerFactory("JPA_DEMO_MYSQL");
         EntityManager em = factory.createEntityManager();
@@ -32,17 +34,40 @@ public class OneToOneTest {
     }
 
     @Test
+    public void saveCustomer() {
+        EntityManagerFactory factory = Persistence.createEntityManagerFactory("JPA_DEMO_MYSQL");
+        EntityManager em = factory.createEntityManager();
+        em.getTransaction().begin();
+
+        Customer customer = new Customer();
+        customer.setId(1L);
+        
+        Passport passport = new Passport();
+        passport.setId(2L);
+        
+        passport.setOwner(customer);
+        
+        customer.setPassport(passport);
+        
+        em.persist(customer);
+
+        em.getTransaction().commit();
+        em.close();
+        factory.close();
+    }
+
+//    @Test
     public void getPeople() {
         EntityManagerFactory factory = Persistence.createEntityManagerFactory("JPA_DEMO_MYSQL");
         EntityManager em = factory.createEntityManager();
-        People people = em.find(People.class, 1);
+        People people = em.find(People.class, 2);
         System.out.println(people.getName() + "<br/> idcard: " + people.getIdCard().getCardNumber());
 
         em.close();
         factory.close();
     }
 
-    @Test
+//    @Test
     public void updatePeople() {
         EntityManagerFactory factory = Persistence.createEntityManagerFactory("JPA_DEMO_MYSQL");
         EntityManager em = factory.createEntityManager();
@@ -58,13 +83,13 @@ public class OneToOneTest {
         factory.close();
     }
 
-    @Test
+//    @Test
     public void deletePeople() {
         EntityManagerFactory factory = Persistence.createEntityManagerFactory("JPA_DEMO_MYSQL");
         EntityManager em = factory.createEntityManager();
         em.getTransaction().begin();
 
-        People people = em.find(People.class, 1);
+        IDCard people = em.find(IDCard.class, 1);
         em.remove(people);
 
         em.getTransaction().commit();

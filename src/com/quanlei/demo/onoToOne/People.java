@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -28,9 +29,14 @@ public class People implements Serializable {
     /**
      * 用户的身份证
      */
-    @OneToOne(optional = false, cascade = CascadeType.ALL)
+    @OneToOne(cascade = CascadeType.ALL)
+    //主键关联
+//    @PrimaryKeyJoinColumn
     //指定外键名称
-    @JoinColumn(name = "idcard_id")
+//    @JoinColumn(name = "idcard_id")
+    @JoinTable(name = "CustomerPassports", joinColumns =
+    @JoinColumn(name = "customer_fk"), inverseJoinColumns =
+    @JoinColumn(name = "passport_fk"))
     private IDCard idCard;
 
     public People() {

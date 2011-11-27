@@ -4,8 +4,12 @@
     <provider>org.hibernate.ejb.HibernatePersistence</provider>
     <class>com.quanlei.demo.onoToOne.IDCard</class>
     <class>com.quanlei.demo.onoToOne.People</class>
+    <class>com.quanlei.demo.onoToOne.Customer</class>
+    <class>com.quanlei.demo.onoToOne.Passport</class>
     <class>com.quanlei.demo.oneToMany.OrderItem</class>
     <class>com.quanlei.demo.oneToMany.Order</class>
+    <class>com.quanlei.demo.oneToMany.Troop</class>
+    <class>com.quanlei.demo.oneToMany.Soldier</class>
     <class>com.quanlei.demo.manyToMany.Teacher</class>
     <class>com.quanlei.demo.manyToMany.Student</class>
     <exclude-unlisted-classes>true</exclude-unlisted-classes>

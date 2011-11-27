@@ -2,6 +2,10 @@ package com.quanlei.test;
 
 import com.quanlei.demo.oneToMany.Order;
 import com.quanlei.demo.oneToMany.OrderItem;
+import com.quanlei.demo.oneToMany.Soldier;
+import com.quanlei.demo.oneToMany.Troop;
+import java.util.HashSet;
+import java.util.Set;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
@@ -14,10 +18,10 @@ public class OneToManyTest {
     public static void setUpBeforeClass() throws Exception {
     }
 
-    @Test
+//    @Test
     public void save() {
         EntityManagerFactory fac = Persistence.createEntityManagerFactory("JPA_DEMO_MYSQL");
-  
+
         EntityManager em = fac.createEntityManager();
         em.getTransaction().begin();
         Order order = new Order();
@@ -35,6 +39,34 @@ public class OneToManyTest {
     }
 
     @Test
+    public void saveTroop() {
+        EntityManagerFactory fac = Persistence.createEntityManagerFactory("JPA_DEMO_MYSQL");
+        EntityManager em = fac.createEntityManager();
+        em.getTransaction().begin();
+
+        Troop troop = new Troop();
+
+        Set<Soldier> set = new HashSet<Soldier>();
+        Soldier soldier = new Soldier();
+        soldier.setId(1L);
+//        soldier.setTroop(troop);
+        set.add(soldier);
+
+        soldier = new Soldier();
+        soldier.setId(2L);
+//        soldier.setTroop(troop);
+        set.add(soldier);
+
+        troop.setSoldiers(set);
+
+        em.persist(troop);
+
+        em.getTransaction().commit();
+        em.close();
+        fac.close();
+    }
+
+//    @Test
     public void getOrder() {
         //读取不用开启事务
         EntityManagerFactory fac = Persistence.createEntityManagerFactory("JPA_DEMO_MYSQL");
@@ -47,7 +79,7 @@ public class OneToManyTest {
         fac.close();
     }
 
-    @Test
+//    @Test
     public void getOrderItemsByOrder() {
         //读取不用开启事务
         EntityManagerFactory fac = Persistence.createEntityManagerFactory("JPA_DEMO_MYSQL");
@@ -62,7 +94,7 @@ public class OneToManyTest {
         fac.close();
     }
 
-    @Test
+//    @Test
     public void getOrderItems() {
         EntityManagerFactory fac = Persistence.createEntityManagerFactory("JPA_DEMO_MYSQL");
         EntityManager em = fac.createEntityManager();
@@ -75,7 +107,7 @@ public class OneToManyTest {
         fac.close();
     }
 
-    @Test
+//    @Test
     public void updateOrder() {
         EntityManagerFactory fac = Persistence.createEntityManagerFactory("JPA_DEMO_MYSQL");
         EntityManager em = fac.createEntityManager();
@@ -88,7 +120,7 @@ public class OneToManyTest {
         fac.close();
     }
 
-    @Test //级联更新
+//    @Test //级联更新
     public void updateOrderCascade() {
         EntityManagerFactory fac = Persistence.createEntityManagerFactory("JPA_DEMO_MYSQL");
         EntityManager em = fac.createEntityManager();
@@ -104,7 +136,7 @@ public class OneToManyTest {
         fac.close();
     }
 
-    @Test //级联删除
+//    @Test //级联删除
     public void deleteOrder() {
         EntityManagerFactory fac = Persistence.createEntityManagerFactory("JPA_DEMO_MYSQL");
         EntityManager em = fac.createEntityManager();
