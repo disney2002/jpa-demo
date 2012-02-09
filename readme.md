@@ -1,6 +1,6 @@
-#JPA Demo#
-1¡¢°üº¬×î¼òµ¥µÄJPAÊý¾Ý¿âÅäÖÃ
+ï»¿#JPA Demo#
+1ã€åŒ…å«æœ€ç®€å•çš„JPAæ•°æ®åº“é…ç½®
 
-2¡¢°üº¬±È½ÏÍêÕûµÄ¶ÔÏó¹ØÁª¹ØÏµ£¬¼°annotationµÄÊ¹ÓÃ
+2ã€åŒ…å«æ¯”è¾ƒå®Œæ•´çš„å¯¹è±¡å…³è”å…³ç³»ï¼ŒåŠannotationçš„ä½¿ç”¨
 
-3¡¢´ó²¿·Ö³Ö¾Ã»¯µÄ²âÊÔÓÃÀý
+3ã€å¤§éƒ¨åˆ†æŒä¹…åŒ–çš„æµ‹è¯•ç”¨ä¾‹
