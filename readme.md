@@ -1,4 +1,5 @@
-﻿#JPA Demo#
+﻿JPA Demo
+--------
 1、包含最简单的JPA数据库配置
 
 2、包含比较完整的对象关联关系，及annotation的使用
