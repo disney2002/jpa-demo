@@ -5,4 +5,4 @@
 
 2、Contains complete object relationships, and the use of annotation.
 
-3、Most of the persistence of test cases.
+3、Most of test cases.
