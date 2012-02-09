@@ -1,8 +1,8 @@
 ﻿JPA Demo
 --------
 
-1、包含最简单的JPA数据库配置
+1、Contains the most simple JPA database configuration.
 
-2、包含比较完整的对象关联关系，及annotation的使用
+2、Contains complete object relationships, and the use of annotation.
 
-3、大部分持久化的测试用例
+3、Most of the persistence of test cases.
